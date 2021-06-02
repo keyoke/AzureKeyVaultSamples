@@ -39,15 +39,12 @@ public class App
 
         for (Enumeration<String> aliases = keyStore.aliases(); aliases.hasMoreElements(); ) {
             String name = aliases.nextElement();
-
-            System.out.println(name);
-
             Certificate cert = keyStore.getCertificate(name);
-
             String certStr = Base64.getEncoder().encodeToString(cert.getEncoded());
 
             System.out.println(X509Factory.BEGIN_CERT);
             System.out.println(certStr);
+            System.out.println(X509Factory.END_CERT);
 
         }
     }
